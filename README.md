@@ -53,4 +53,4 @@ Once you're ready to begin, run the following command in your terminal:
 git checkout step-1-generate-plugin
 ```
 
-Then, follow the directions in that branch's [README](http://www.github.com)
+Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-1-generate-plugin/README.md)
