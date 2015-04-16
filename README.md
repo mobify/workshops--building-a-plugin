@@ -1,56 +1,20 @@
-# Building a plugin
+# Step 1 - Generate the plugin scaffold
 
-This workshop is aimed at guiding you through the process of building a UI plugin using Mobify's plugin factory. It will guide you through a few steps, including:
+Since you've already installed the `generator-plugin` yeoman generator (and I know you have!), we can generate our plugin scaffold very easily. The scaffold comes with a structure like this:
 
-1. Generating a plugin scaffold using the [plugin generator](https://github.com/mobify/generator-plugin)
-2. Understanding the structure of the plugin factory
-3. Building up your plugin step by step
-4. Writing tests for your plugin
-
-## Workshop Pre-requisites
-
-You will need a few things installed to build plugins using this workshop.
-
-### Grunt
-
-You need grunt:
-
-```cli
-[sudo] npm install -g grunt-cli
-```
-
-### Bower
-
-You need bower:
-
-```cli
-[sudo] npm install -g bower
-```
-
-### Yeoman
+![Plugin directory structure](https://s3.amazonaws.com/uploads.hipchat.com/15359/597597/XUOZLHvE17Ao83M/upload.png)
  
-You need yeoman:
+
+
+## Task:
+
+
+## Ready to Continue?
+
+Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-[sudo npm install -g yo
+git clean -f && git checkout step-2-
 ```
 
-### generator-plugin
-
-You'll need the yeoman generator for building plugins:
-
-```cli
-git clone https://github.com/mobify/generator-plugin.git && [sudo] npm link
-```
-
-The `[sudo] npm link` command will install the plugin generator in your local yeoman.
-
-## Ready to start?
-
-Once you're ready to begin, run the following command in your terminal:
-
-```cli
-git checkout step-1-generate-plugin
-```
-
-Then, follow the directions in that branch's [README](http://www.github.com)
+Then, follow the directions in that branch's README
