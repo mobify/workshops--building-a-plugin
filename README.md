@@ -1,9 +1,5 @@
-# Step 1 - Generate the plugin scaffold
+# Step 2 - Initialize
 
-Since you've already installed the `generator-plugin` yeoman generator (and I know you have!), we can generate our plugin scaffold very easily. The scaffold comes with a structure like this:
-
-![Plugin directory structure](https://s3.amazonaws.com/uploads.hipchat.com/15359/597597/XUOZLHvE17Ao83M/upload.png)
- 
 
 
 ## Task:
