@@ -10,7 +10,7 @@ Since you've already installed the `generator-plugin` yeoman generator (and I kn
  yo plugin
  ```
 
-1. We're going to call our plugin **pluginName**. Enter that now.
+1. We're going to call our plugin **seesee**. Enter that now.
 1. When prompted for a description, enter **this**.
 2. When prompted about whether or not to use Velocity, choose **no (n)**.
 3. When prompted as to whether our plugin requires a theme file, choose **no (n)**.
