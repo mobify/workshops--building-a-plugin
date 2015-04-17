@@ -20,8 +20,7 @@ define([
         });
 
         it('creates a seesee instance', function() {
-            var seesee = new Seesee($element, {
-            });
+            var seesee = new Seesee($element, {});
 
             expect(seesee).to.be.defined;
         });

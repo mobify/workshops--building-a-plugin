@@ -20,7 +20,11 @@
 
     Plugin.create('seesee', Seesee, {
         _init: function(element) {
-            this.$element = $(element).attr('type', 'tel');
+            this.$element = $(element);
+
+            if (!this.$element.is('input')) {
+                throw new Error('Seesee must be initialized against elements of type input');
+            }
 
             this._bindEvents();
         },
