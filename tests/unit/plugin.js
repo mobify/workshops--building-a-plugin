@@ -22,7 +22,7 @@ define([
         describe('initializing seesee', function() {
             it('does not throw when initializing against an element of type input', function() {
                 expect(function() {
-                    $('<input />').seesee();
+                    $element.seesee();
                 }).to.not.throw();
             });
 
@@ -30,6 +30,12 @@ define([
                 expect(function() {
                     $('<div />').seesee();
                 }).to.throw();
+            });
+
+            it('sets the correct type attribute on the input', function() {
+                var $creditCard = $element.seesee();
+
+                expect($creditCard.attr('type')).to.equal('tel');
             });
         });
     });

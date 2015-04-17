@@ -26,6 +26,8 @@
                 throw new Error('Seesee must be initialized against elements of type input');
             }
 
+            this.$element.attr('type', 'tel');
+
             this._bindEvents();
         },
 
