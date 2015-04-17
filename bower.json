@@ -1,0 +1,26 @@
+{
+  "name": "seesee",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mobify/seesee",
+  "authors": [
+    "Mobify <jobs@mobify.com>"
+  ],
+  "description": "A mobile first content fly-in UI plugin",
+  "main": "dist/seesee.min.js",
+  "keywords": [
+    "seesee",
+    "fly-in",
+    "modal",
+    "mobile",
+    "mobify"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "./!(src|dist|lib|templates)"
+  ],
+  "dependencies": {
+        "plugin": "~3.0.0",
+        "requirejs-text": "~2.0.12",
+        "requirejs": "~2.1.14"
+}
+}
