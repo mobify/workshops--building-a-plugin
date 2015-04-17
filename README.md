@@ -61,7 +61,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
     var $creditCard = $element.seesee();
     
     expect($creditCard.attr('type')).to.equal('tel');
-  }
+  });
   ```
 
 ## Ready to Continue?
