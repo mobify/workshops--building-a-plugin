@@ -26,7 +26,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   describe('initializing seesee', function() {
     it('does not throw when initializing against an element of type input', function() {
       expect(function() {
-        $('<input />').seesee();
+        $element.seesee();
       }).to.not.throw();
     });
     
@@ -58,7 +58,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
 
   ```js
   it('sets the correct type attribute on the input', function() {
-    var $creditCard = $('<input />').seesee();
+    var $creditCard = $element.seesee();
     
     expect($creditCard.attr('type')).to.equal('tel');
   }
