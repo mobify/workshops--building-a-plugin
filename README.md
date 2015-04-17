@@ -26,7 +26,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   describe('initializing seesee', function() {
     it('does not throw when initializing against an element of type input', function() {
       expect(function() {
-        $('<input />').seesee();
+        $element.seesee();
       }).to.not.throw();
     });
     
@@ -58,10 +58,10 @@ Now that our plugin scaffold has been created, let's start adding some functiona
 
   ```js
   it('sets the correct type attribute on the input', function() {
-    var $creditCard = $('<input />').seesee();
+    var $creditCard = $element.seesee();
     
     expect($creditCard.attr('type')).to.equal('tel');
-  }
+  });
   ```
 
 ## Ready to Continue?
@@ -69,7 +69,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-2-
+git clean -f && git checkout step-3-bind-events
 ```
 
-Then, follow the directions in that branch's README
+Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-3-bind-events/README.md)
