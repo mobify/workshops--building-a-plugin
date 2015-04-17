@@ -1,9 +1,5 @@
-# Step 1 - Generate the plugin scaffold
+# Step 3 - Bind events
 
-Since you've already installed the `generator-plugin` yeoman generator (and I know you have!), we can generate our plugin scaffold very easily. The scaffold comes with a structure like this:
-
-![Plugin directory structure](https://s3.amazonaws.com/uploads.hipchat.com/15359/597597/XUOZLHvE17Ao83M/upload.png)
- 
 
 
 ## Task:
@@ -14,7 +10,7 @@ Since you've already installed the `generator-plugin` yeoman generator (and I kn
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-2-
+git clean -f && git checkout step-4-
 ```
 
 Then, follow the directions in that branch's README
