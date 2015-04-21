@@ -36,7 +36,12 @@
         },
 
         _bindEvents: function() {
+            this.$element
+                .on('keyup', this._checkCard.bind(this));
+        },
 
+        _checkCard: function() {
+            console.log('checking card!');
         }
     });
 
