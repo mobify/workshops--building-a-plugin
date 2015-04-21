@@ -38,6 +38,19 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   });
   ```
 
+1. We also want to decorate our `seesee` element with a class in order to apply specific plugin styles. To do that we should define a class object to contain our classes.
+
+  ```js
+  Seesee.CLASSES = {
+    SEESEE: 'seesee'
+  };
+  ```
+  
+  and in `_init` we can add the class to the element.
+  
+  ```js
+  ```
+
 1. The next thing we want to do is force the numeric keypad to display on mobile. To do this, we add an attribute to the input.
 
   ```js
