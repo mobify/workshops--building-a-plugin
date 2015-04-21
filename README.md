@@ -45,6 +45,14 @@ git clone https://github.com/mobify/generator-plugin.git && [sudo] npm link
 
 The `[sudo] npm link` command will install the plugin generator in your local yeoman.
 
+### What we're building
+
+We're going to build a credit card validator and identifier plugin, conveniently (or annoyingly) called `seesee`. This plugin is going to have the following requirements:
+
+1. Bind itself to elements of type `input`
+2. Identify the card type while typing
+3. Validate the card while typing
+
 ## Ready to start?
 
 Once you're ready to begin, run the following command in your terminal:
