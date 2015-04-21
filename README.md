@@ -11,7 +11,7 @@ Since you've already installed the `generator-plugin` yeoman generator (and I kn
   ```
 
 1. We're going to call our plugin **seesee**. Enter that now.
-1. When prompted for a description, enter: **A mobile first credit card mask and validator**.
+1. When prompted for a description, enter: **A mobile first credit card identifier and validator**.
 1. When prompted about whether or not to use Velocity, choose **no (n)**.
 1. When prompted as to whether our plugin requires a theme file, choose **no (n)**.
 
