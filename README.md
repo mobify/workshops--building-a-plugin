@@ -7,7 +7,7 @@ This workshop is aimed at guiding you through the process of building a UI plugi
 3. Building up your plugin step by step
 4. Writing tests for your plugin
 
-### What we're building
+## What we're building
 
 We're going to build a credit card validator and identifier plugin, conveniently (or annoyingly) called `seesee`. This plugin is going to have the following requirements:
 
