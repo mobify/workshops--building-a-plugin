@@ -9,6 +9,10 @@
         factory(framework, window.Plugin);
     }
 }(function($, Plugin) {
+    var classes = {
+        SEESEE: 'seesee'
+    };
+
     function Seesee(element, options) {
         Seesee.__super__.call(this, element, options, Seesee.DEFAULTS);
     }
@@ -26,7 +30,9 @@
                 throw new Error('Seesee must be initialized against elements of type input');
             }
 
-            this.$element.attr('type', 'tel');
+            this.$element
+                .addClass(classes.SEESEE)
+                .attr('type', 'tel');
 
             this._bindEvents();
         },
