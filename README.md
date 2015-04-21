@@ -38,10 +38,10 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   });
   ```
 
-1. We also want to decorate our `seesee` element with a class in order to apply specific plugin styles. To do that we should define a class object to contain our classes.
+1. We also want to decorate our `seesee` element with a class in order to apply specific plugin styles. To do that we should define a class object to contain our classes. Above the constructor, add this object.
 
   ```js
-  Seesee.CLASSES = {
+  var classes = {
     SEESEE: 'seesee'
   };
   ```
@@ -49,6 +49,27 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   and in `_init` we can add the class to the element.
   
   ```js
+  _init: function(element) {
+      this.$element = $(element);
+
+      if (!this.$element.is('input')) {
+          throw new Error('Seesee must be initialized against elements of type input');
+      }
+      
+      this.$element.addClass(classes.SEESEE);
+
+      this._bindEvents();
+  }  
+  ```
+  
+1. Let's also write a test for this.
+
+  ```js
+  it('sets the correct class on the input', function() {
+    var $creditCard = $element.seesee();
+    
+    expect($creditCard.hasClass('seesee')).to.be.true;
+  });
   ```
 
 1. The next thing we want to do is force the numeric keypad to display on mobile. To do this, we add an attribute to the input.
@@ -61,7 +82,9 @@ Now that our plugin scaffold has been created, let's start adding some functiona
           throw new Error('Seesee must be initialized against elements of type input');
       }
       
-      this.$element.attr('type', 'tel');
+      this.$element
+        .addClass(classes.SEESEE)
+        .attr('type', 'tel');
 
       this._bindEvents();
   }  
