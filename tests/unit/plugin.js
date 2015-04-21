@@ -32,6 +32,12 @@ define([
                 }).to.throw();
             });
 
+            it('sets the correct class on the input', function() {
+                var $creditCard = $element.seesee();
+
+                expect($creditCard.hasClass('seesee')).to.be.true;
+            });
+
             it('sets the correct type attribute on the input', function() {
                 var $creditCard = $element.seesee();
 
