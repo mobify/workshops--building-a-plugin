@@ -31,68 +31,70 @@ define([
             testSandbox.setUp('sandbox', setUpComplete);
         });
 
-        it('restricts length of input', function() {
-            $element.seesee();
+        describe('internal events respond correctly', function() {
+            it('restricts length of input', function() {
+                $element.seesee();
 
-            $element.val('4500 0000 0000 0000');
-            sendKey('0');
+                $element.val('4500 0000 0000 0000');
+                sendKey('0');
 
-            expect($element.val()).to.equal('4500 0000 0000 0000');
-        });
+                expect($element.val()).to.equal('4500 0000 0000 0000');
+            });
 
-        it('restricts type of input to numeric', function() {
-            $element.seesee();
+            it('restricts type of input to numeric', function() {
+                $element.seesee();
 
-            $element.val('4500');
-            sendKey('f');
+                $element.val('4500');
+                sendKey('f');
 
-            expect($element.val()).to.equal('4500');
-        });
+                expect($element.val()).to.equal('4500');
+            });
 
-        it('allows numeric input', function() {
-            $element.seesee();
+            it('allows numeric input', function() {
+                $element.seesee();
 
-            $element.val('4500');
-            sendKey('0');
+                $element.val('4500');
+                sendKey('0');
 
-            expect($element.val()).to.equal('4500 0');
-        });
+                expect($element.val()).to.equal('4500 0');
+            });
 
-        it('correctly formats card', function() {
-            $element.seesee();
+            it('correctly formats card', function() {
+                $element.seesee();
 
-            $element.val('450000000000000');
-            sendKey('0');
+                $element.val('450000000000000');
+                sendKey('0');
 
-            expect($element.val()).to.equal('4500 0000 0000 0000');
-        });
+                expect($element.val()).to.equal('4500 0000 0000 0000');
+            });
 
-        it('correctly identifies visa card type and sets class', function() {
-            $element.seesee();
+            it('correctly identifies visa card type and sets class', function() {
+                $element.seesee();
 
-            $element.val('450000000000000');
-            sendKey('0');
+                $element.val('450000000000000');
+                sendKey('0');
 
-            expect($element.hasClass('visa')).to.be.true;
-        });
+                expect($element.hasClass('visa')).to.be.true;
+            });
 
-        it('correctly identifies mastercard card type and sets class', function() {
-            $element.seesee();
+            it('correctly identifies mastercard card type and sets class', function() {
+                $element.seesee();
 
-            $element.val('540000000000000');
-            sendKey('0');
+                $element.val('540000000000000');
+                sendKey('0');
 
-            expect($element.hasClass('mastercard')).to.be.true;
-        });
+                expect($element.hasClass('mastercard')).to.be.true;
+            });
 
-        it('correctly ignores unrecognized card types', function() {
-            $element.seesee();
+            it('correctly ignores unrecognized card types', function() {
+                $element.seesee();
 
-            $element.val('770000000000000');
-            sendKey('0');
+                $element.val('770000000000000');
+                sendKey('0');
 
-            expect($element.hasClass('visa')).to.be.false;
-            expect($element.hasClass('mastercard')).to.be.false;
+                expect($element.hasClass('visa')).to.be.false;
+                expect($element.hasClass('mastercard')).to.be.false;
+            });
         });
     });
 });
