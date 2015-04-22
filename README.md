@@ -9,9 +9,9 @@ It would be great if our credit card input gave us some visual indication of a c
   Open `src/style/seesee.scss` and add the following to the `.seesee` selector.
   
   ```scss
-    .seesee {
-        
-    }
+  .seesee {
+      
+  }
   ```
 
 1. Next, we want to add specific styles for the input once the card has been identified. Add the following below the above CSS.
