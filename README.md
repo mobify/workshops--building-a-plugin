@@ -38,7 +38,7 @@ Our plugin needs to respond to events that happen on the element. The first thin
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-4-respond-to-event
+git clean -f && git checkout step-4-respond-to-events
 ```
 
-Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-4-respond-to-event/README.md)
+Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-4-respond-to-events/README.md)
