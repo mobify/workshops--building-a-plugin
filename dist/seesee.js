@@ -63,10 +63,8 @@
 
     Seesee.VERSION = '0.0.1';
 
-    Seesee.DEFAULTS = {};
+    Seesee.DEFAULTS = {
 
-    Seesee.classes = {
-        INPUT: 'seesee__input'
     };
 
     Plugin.create('seesee', Seesee, {
