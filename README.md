@@ -4,20 +4,32 @@ Our plugin needs to respond to events that happen on the element. The first thin
 
 ## Task:
 
-1. Bind a `keyup` event to the element in the `_bindEvents` function.
+1. First, bind a `keypress` event to the element in the `_bindEvents` function. We'll use this event to correctly format the card on input. 
 
   ```js
     _bindEvents: function() {
         this.$element
+            .on('keypress', this._formatCard.bind(this));
+    }
+  ```
+  
+1. Next, bind a `keyup` event to the element in the `_bindEvents` function. We'll use this function to help us identify the card type being entered. We'll decorate the input with a CSS class to indicate its type.
+
+  ```js
+    _bindEvents: function() {
+        this.$element
+            .on('keypress', this._formatCard.bind(this))
             .on('keyup', this._checkCard.bind(this));
     }
   ```
   
-1. And also add a stub for the `_checkCard` function.
+1. And also add a stub for the `_formatCard` and check `_checkCard` functions.
 
   ```js
+    _formatCard: function() {
+    },
+    
     _checkCard: function() {
-        console.log('checking card!');
     }
   ```
 
