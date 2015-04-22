@@ -22,7 +22,7 @@
         },
         {
             type: 'mastercard',
-            pattern: /^5[1-5]]/,
+            pattern: /^5[1-5]/,
             format: /(\d{1,4})/g,
             maxLength: 16
         }
@@ -63,6 +63,7 @@
         _bindEvents: function() {
             this.$element
                 .on('keypress', this._restrictNumeric.bind(this))
+                .on('keypress', this._restrictLength.bind(this))
                 .on('keyup', this._formatCard.bind(this))
                 .on('keyup', this._identifyType.bind(this));
         },
@@ -79,6 +80,14 @@
             return !!/[\d\s]/.test(String.fromCharCode(e.which));
         },
 
+        _restrictLength: function(e) {
+            var digit = String.fromCharCode(e.which);
+            var number = this.$element.val().replace(/\s/g, '') + digit;
+            var type = this._getCardType(number);
+
+            return number.length <= type.maxLength;
+        },
+
         _formatCard: function() {
             var number = this.$element.val();
             var type = this._getCardType(number);
@@ -89,8 +98,6 @@
                 if (match) {
                     this.$element.val(match.join(' '));
                 }
-            } else {
-                this.$element.val(number);
             }
         },
 
