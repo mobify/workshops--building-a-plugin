@@ -94,5 +94,28 @@ define([
             expect($element.hasClass('visa')).to.be.false;
             expect($element.hasClass('mastercard')).to.be.false;
         });
+
+        it('correctly invokes the identified event', function(done) {
+            $element.seesee({
+                identified: function() {
+                    done();
+                }
+            });
+
+            $element.val('450000000000000');
+            sendKey('0');
+        });
+
+        it('passes data to the identified event', function(done) {
+            $element.seesee({
+                identified: function(e, ui) {
+                    expect(ui.type.type).to.equal('visa');
+                    done();
+                }
+            });
+
+            $element.val('450000000000000');
+            sendKey('0');
+        });
     });
 });
