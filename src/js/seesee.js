@@ -13,6 +13,21 @@
         SEESEE: 'seesee'
     };
 
+    var cards = [
+        {
+            type: 'visa',
+            pattern: /^4/,
+            format: /(\d{1,4})/g,
+            maxLength: 16
+        },
+        {
+            type: 'mastercard',
+            pattern: /^5[1-5]]/,
+            format: /(\d{1,4})/g,
+            maxLength: 16
+        }
+    ];
+
     function Seesee(element, options) {
         Seesee.__super__.call(this, element, options, Seesee.DEFAULTS);
     }
@@ -24,19 +39,6 @@
     Seesee.classes = {
         INPUT: 'seesee__input'
     };
-
-    Seesee.CARDS = [
-        {
-            type: 'visa',
-            pattern: /^4/,
-            format: /(\d{1,4})/g
-        },
-        {
-            type: 'mastercard',
-            pattern: /^5[1-5]]/,
-            format: /(\d{1,4})/g
-        }
-    ];
 
     Plugin.create('seesee', Seesee, {
         _init: function(element) {
@@ -60,24 +62,39 @@
 
         _bindEvents: function() {
             this.$element
+                .on('keypress', this._restrictNumeric.bind(this))
                 .on('keyup', this._formatCard.bind(this))
-                .on('keyup', this._checkCard.bind(this));
+                .on('keyup', this._identifyType.bind(this));
+        },
+
+        _restrictNumeric: function(e) {
+            if (e.metaKey || e.ctrlKey || e.which === 0 || e.which < 33) {
+                return true;
+            }
+
+            if (e.which === 32) {
+                return false;
+            }
+
+            return !!/[\d\s]/.test(String.fromCharCode(e.which));
         },
 
         _formatCard: function() {
-            var type = this._getCardType(this.$element.val());
+            var number = this.$element.val();
+            var type = this._getCardType(number);
 
             if (type) {
-                var number = this.$element.val();
                 var match = number.match(type.format);
 
                 if (match) {
                     this.$element.val(match.join(' '));
                 }
+            } else {
+                this.$element.val(number);
             }
         },
 
-        _checkCard: function() {
+        _identifyType: function() {
             var type = this._getCardType(this.$element.val());
 
             if (type) {
@@ -90,8 +107,8 @@
         },
 
         _getCardType: function(number) {
-            for (var i = 0, l = Seesee.CARDS.length; i < l; i++) {
-                var type = Seesee.CARDS[i];
+            for (var i = 0, l = cards.length; i < l; i++) {
+                var type = cards[i];
 
                 if (type.pattern.test(number)) {
                     return type;
