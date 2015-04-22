@@ -18,9 +18,6 @@ require.config({
         },
         '$': {
             exports: '$'
-        },
-        'bililiteRange': {
-            exports: 'bililiteRange'
         }
     },
     glob: {
