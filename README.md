@@ -7,18 +7,18 @@ Our plugin needs to respond to events that happen on the element. The first thin
 1. Bind a `keyup` event to the element in the `_bindEvents` function.
 
   ```js
-  _bindEvents: function() {
-      this.$element
-          .on('keyup', this._checkCard.bind(this));
-  }
+    _bindEvents: function() {
+        this.$element
+            .on('keyup', this._checkCard.bind(this));
+    }
   ```
   
 1. And also add a stub for the `_checkCard` function.
 
   ```js
-  _checkCard: function() {
-    console.log('checking card!');
-  }
+    _checkCard: function() {
+        console.log('checking card!');
+    }
   ```
 
 ## Ready to Continue?
