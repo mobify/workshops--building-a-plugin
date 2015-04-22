@@ -1,18 +1,28 @@
-# Step 3 - Bind events
+# Step 6 - Styling
 
-Now that we've bound our event, we need to respond to it when we receive user input.
+It would be great if our credit card input gave us some visual indication of a card being identified. Let's make that happen. 
 
 ## Task:
 
-1. 
+1. First, let's add some basic styling for `seesee`'s input. 
 
+  Open `src/style/seesee.scss` and add the following to the `.seesee` selector.
+  
+  ```scss
+    .seesee {
+        
+    }
+  ```
 
-## Ready to Continue?
+1. Next, we want to add specific styles for the input once the card has been identified. Add the following below the above CSS.
 
-Once you're ready to continue, run the following command in your terminal:
+    ```scss
+    ```
 
-```cli
-git clean -f && git checkout step-5-options
-```
+## All done!
 
-Then, follow the directions in that branch's README
+If you want to view the finished product, just use `grunt examples`. It will open up your browser and point you to the examples page of your plugin. 
+
+## Resources
+
+Plugin factory [repository](https://github.com/mobify/plugin)
