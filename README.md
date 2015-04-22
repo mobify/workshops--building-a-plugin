@@ -41,7 +41,7 @@ Now that we've bound our events, we need to respond to them when we receive user
     }
     ```
     
-1. Finally, we want to fill in the bodies of the functions we'd defined as event handlers. Let's add that now.
+1. Additionally, we want to fill in the bodies of the functions we'd defined as event handlers. Let's add that now.
 
     ```js
     _restrictNumeric: function(e) {
@@ -91,6 +91,111 @@ Now that we've bound our events, we need to respond to them when we receive user
     ```
     
     Notice that because we've bound the context of these functions to the plugin instance using `.bind(this)` in `_bindEvents`, we can now access any methods the plugin instance has. This is useful as it allows us to keep our code clean and doesn't require us to pass data as parameters in our code.
+    
+1. Things wouldn't be complete without us writing some tests. Let's write some tests to simulate events. Let's open `tests/unit/events.js` so that we can add some tests to it.
+
+    First, we need to ensure our element is appended correctly to the DOM. This is a critical step in testing events. We need to change our `beforeEach` call to the following:
+    
+    ```js
+    beforeEach(function(done) {
+        var setUpComplete = function(iFrame$, dependencies) {
+            $ = iFrame$;
+            Seesee = $.fn.seesee.Constructor;
+            $element = $(fixture).appendTo('body');
+
+            done();
+        };
+
+        testSandbox.setUp('sandbox', setUpComplete);
+    });
+    ```
+    Pay special attention to this line: `$element = $(fixture).appendTo('body');`. We've ensured our element is attached to the DOM, so any events triggered will correctly bubble. 
+
+    Second, we'll need a helper function that allows us to simulate typing keys.
+
+    ```js
+    var sendKey = function(char) {
+        var charCode = char.charCodeAt(0);
+
+        $('body').on('keypress', function(e) {
+            $element.val($element.val() + String.fromCharCode(e.which));
+            $('body').off('keypress');
+        });
+
+        $element.trigger($.Event('keypress', { which: charCode, keyCode: charCode}));
+        $element.trigger($.Event('keyup', { which: charCode, keyCode: charCode}));
+    };    
+    ```
+
+1. Finally, we'll want to write our unit tests.
+
+    ```js
+    it('restricts length of input', function() {
+        $element.seesee();
+
+        $element.val('4500 0000 0000 0000');
+        sendKey('0');
+
+        expect($element.val()).to.equal('4500 0000 0000 0000');
+    });
+
+    it('restricts type of input to numeric', function() {
+        $element.seesee();
+
+        $element.val('4500');
+        sendKey('f');
+
+        expect($element.val()).to.equal('4500');
+    });
+
+    it('allows numeric input', function() {
+        $element.seesee();
+
+        $element.val('4500');
+        sendKey('0');
+
+        expect($element.val()).to.equal('4500 0');
+    });
+
+    it('correctly formats card', function() {
+        $element.seesee();
+
+        $element.val('450000000000000');
+        sendKey('0');
+
+        expect($element.val()).to.equal('4500 0000 0000 0000');
+    });
+
+    it('correctly identifies visa card type and sets class', function() {
+        $element.seesee();
+
+        $element.val('450000000000000');
+        sendKey('0');
+
+        expect($element.hasClass('visa')).to.be.true;
+    });
+
+    it('correctly identifies mastercard card type and sets class', function() {
+        $element.seesee();
+
+        $element.val('540000000000000');
+        sendKey('0');
+
+        expect($element.hasClass('mastercard')).to.be.true;
+    });
+
+    it('correctly ignores unrecognized card types', function() {
+        $element.seesee();
+
+        $element.val('770000000000000');
+        sendKey('0');
+
+        expect($element.hasClass('visa')).to.be.false;
+        expect($element.hasClass('mastercard')).to.be.false;
+    });
+    ```
+    
+    Run the tests using `grunt test` and ensure they all pass.
 
 ## Ready to Continue?
 
