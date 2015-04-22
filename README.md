@@ -2,6 +2,39 @@
 
 Our plugin needs to respond to events that happen on the element. The first thing we need to do to respond to events is bind them.
 
+Before we add events using `Function.prototype.bind`, and because its support is spotty across all browsers (iOS5 and phantomjs, which we're using for tests), we need to add it. Let's add it now just above the constructor.
+
+```js
+/**
+ * Function.prototype.bind polyfill required for < iOS6
+ */
+/* jshint ignore:start */
+if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+        if (typeof this !== "function") {
+            // closest thing possible to the ECMAScript 5 internal IsCallable function
+            throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+        }
+
+        var aArgs = Array.prototype.slice.call(arguments, 1),
+            fToBind = this,
+            fNOP = function () {},
+            fBound = function () {
+                return fToBind.apply(this instanceof fNOP && oThis
+                        ? this
+                        : oThis,
+                    aArgs.concat(Array.prototype.slice.call(arguments)));
+            };
+
+        fNOP.prototype = this.prototype;
+        fBound.prototype = new fNOP();
+
+        return fBound;
+    };
+}
+/* jshint ignore:end */
+```
+
 ## Task:
 
 1. First, bind a `keypress` event to the element in the `_bindEvents` function. We'll use this to restrict input to numeric values only. 
