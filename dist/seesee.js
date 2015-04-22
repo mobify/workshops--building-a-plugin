@@ -42,7 +42,17 @@
         },
 
         _bindEvents: function() {
+            this.$element
+                .on('keypress', this._formatCard.bind(this))
+                .on('keyup', this._checkCard.bind(this));
+        },
 
+        _formatCard: function() {
+
+        },
+
+        _checkCard: function() {
+            
         }
     });
 
