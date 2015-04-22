@@ -96,7 +96,7 @@ define([
                 expect($element.hasClass('mastercard')).to.be.false;
             });
         });
-        
+
         describe('options events respond correctly', function() {
             it('correctly invokes the identified event', function(done) {
                 $element.seesee({
