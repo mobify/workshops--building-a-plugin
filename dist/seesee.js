@@ -20,7 +20,7 @@
 
     Plugin.create('seesee', Seesee, {
         _init: function(element) {
-            this.$element = $(element).attr('type', 'tel');
+            this.$element = $(element);
 
             this._bindEvents();
         },
