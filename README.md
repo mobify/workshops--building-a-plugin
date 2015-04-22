@@ -99,6 +99,8 @@ Now that our plugin scaffold has been created, let's start adding some functiona
     expect($creditCard.attr('type')).to.equal('tel');
   });
   ```
+  
+  Now run the tests using `grunt test` and ensure they pass.
 
 ## Ready to Continue?
 
