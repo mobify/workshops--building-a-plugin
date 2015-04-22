@@ -111,7 +111,11 @@ Now that we've bound our events, we need to respond to them when we receive user
     ```
     Pay special attention to this line: `$element = $(fixture).appendTo('body');`. We've ensured our element is attached to the DOM, so any events triggered will correctly bubble. 
 
-    Second, we'll need a helper function that allows us to simulate typing keys.
+    Second, we'll need a helper function that allows us to simulate typing keys. Simulating events in unit tests is tricky. Merely triggering an event isn't enough because the character that is propagated through the event is never actually appended to the value of the input field. Also, just appending the character manually to the input field is an option, but doesn't reflect the true behavior of the browser. 
+    
+    Because our `keypress` events return either `true` or `false`, they allow the event to either bubble or not. In simpler terms, if our `keypress` handler returns `true`, the character typed would be appended to the value of the input field. If the handler returns `false`, bubbling would be cancelled and the character would not be appended. 
+    
+    To mimic this, we attach a `keypress` handler to the `body` of the page. If the event bubbles, we know our handler evaluated to `true`, and allowed the event to propagate up the DOM. This is akin to a `keypress` allowing a character to be typed in the input. So, we append that character ourselves to mimic the browser behavior.  
 
     ```js
     var sendKey = function(char) {
@@ -205,4 +209,4 @@ Once you're ready to continue, run the following command in your terminal:
 git clean -f && git checkout step-5-options
 ```
 
-Then, follow the directions in that branch's README
+Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-5-options/README.md)
