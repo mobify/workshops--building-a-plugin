@@ -12,6 +12,16 @@ Our plugin needs to respond to events that happen on the element. The first thin
             .on('keypress', this._restrictNumeric.bind(this));
     }
     ```
+    
+1. Next, bind a `keypress` event. We'll use this to restrict the allowable length.
+
+    ```js
+    _bindEvents: function() {
+        this.$element
+            .on('keypress', this._restrictNumeric.bind(this))
+            .on('keypress', this._restrictLength.bind(this));
+    }
+    ```
 
 1. Next, bind a `keyup` event. We'll use this event to correctly format the card on input. 
 
@@ -19,6 +29,7 @@ Our plugin needs to respond to events that happen on the element. The first thin
     _bindEvents: function() {
         this.$element
             .on('keypress', this._restrictNumeric.bind(this))
+            .on('keypress', this._restrictLength.bind(this))
             .on('keyup', this._formatCard.bind(this));
     }
     ```
@@ -29,6 +40,7 @@ Our plugin needs to respond to events that happen on the element. The first thin
     _bindEvents: function() {
         this.$element
             .on('keypress', this._restrictNumeric.bind(this))
+            .on('keypress', this._restrictLength.bind(this))
             .on('keyup', this._formatCard.bind(this))
             .on('keyup', this._identifyType.bind(this));
     }
