@@ -19,7 +19,10 @@
 
     Seesee.VERSION = '0';
 
-    Seesee.DEFAULTS = {
+    Seesee.DEFAULTS = {};
+
+    Seesee.classes = {
+        INPUT: 'seesee__input'
     };
 
     Plugin.create('seesee', Seesee, {
@@ -33,6 +36,7 @@
             this.$element
                 .addClass(classes.SEESEE)
                 .attr('type', 'tel');
+            this.currentClass = '';
 
             this._bindEvents();
         },
@@ -43,16 +47,21 @@
 
         _bindEvents: function() {
             this.$element
-                .on('keypress', this._formatCard.bind(this))
-                .on('keyup', this._checkCard.bind(this));
+                .on('keypress', this._restrictNumeric.bind(this))
+                .on('keyup', this._formatCard.bind(this))
+                .on('keyup', this._identifyType.bind(this));
+        },
+
+        _restrictNumeric: function(e) {
+
         },
 
         _formatCard: function() {
 
         },
 
-        _checkCard: function() {
-            
+        _identifyType: function() {
+
         }
     });
 
