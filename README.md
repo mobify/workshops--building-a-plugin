@@ -1,14 +1,10 @@
 # Step 3 - Bind events
 
-Our plugin needs to respond to events that happen on the element. The first thing we need to do to respond to events is bind them.
+Now that we've bound our event, we need to respond to it when we receive user input.
 
 ## Task:
 
-1. Bind a `keyup` event to the element.
-
-```js
-
-```
+1. 
 
 
 ## Ready to Continue?
@@ -16,7 +12,7 @@ Our plugin needs to respond to events that happen on the element. The first thin
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-4-
+git clean -f && git checkout step-5-options
 ```
 
 Then, follow the directions in that branch's README
