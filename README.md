@@ -6,11 +6,11 @@ Let's add a few options to our plugin.
 
 ## Task:
 
-1. Add a config option that exposes an event called `identified`. This event will fire once the card is identified by its type. To do this, we add the option for the event to the default options object and initialize it to `$.noop`. 
+1. Add a config option that exposes an event called `typeIdentified`. This event will fire once the card is identified by its type. To do this, we add the option for the event to the default options object and initialize it to `$.noop`. 
 
     ```js
     Seesee.DEFAULTS = {
-        identified: $.noop
+        typeIdentified: $.noop
     };
     ```
     
@@ -27,7 +27,7 @@ Let's add a few options to our plugin.
         if (type) {
             this.$element.removeClass(this.currentClass).addClass(type.type);
             
-            this._trigger('identified', { type: type });
+            this._trigger('typeIdentified', { type: type });
 
             this.currentClass = type.type;
         } else {
@@ -36,13 +36,13 @@ Let's add a few options to our plugin.
     },
     ```
 
-    Now, if someone initializes their plugin with the `identified` event, it will be invoked once the card type is identified. You'll notice that the second parameter to `_trigger` is an object. This object is arbitrary data that you can pass to your event handler. 
+    Now, if someone initializes their plugin with the `typeIdentified` event, it will be invoked once the card type is identified. You'll notice that the second parameter to `_trigger` is an object. This object is arbitrary data that you can pass to your event handler. 
     
     Here's an example:
     
     ```js
     $('input').seesee({
-        identified: function(e, ui) {
+        typeIdentified: function(e, ui) {
             console.log(ui.type);
         }
     });
@@ -58,21 +58,21 @@ Let's add a few options to our plugin.
             seesee = new Seesee($element);
         });
 
-        it('correctly defines the identified event', function() {
-            expect(seesee.options.identified).to.be.a('function');
+        it('correctly defines the typeIdentified event', function() {
+            expect(seesee.options.typeIdentified).to.be.a('function');
         });
     });
 
     describe('creates custom options when options parameter used', function() {
-        it('correctly defines identified event', function() {
-            var identified = function() {
-                console.log('I\'m identified!')
+        it('correctly defines typeIdentified event', function() {
+            var typeIdentified = function() {
+                console.log('I\'m typeIdentified!')
             };
 
-            seesee = new Seesee($element, { identified: identified });
+            seesee = new Seesee($element, { typeIdentified: typeIdentified });
 
-            expect(seesee.options.identified).to.equal(identified);
-            expect(seesee.options.identified).to.be.a('function');
+            expect(seesee.options.typeIdentified).to.equal(typeIdentified);
+            expect(seesee.options.typeIdentified).to.be.a('function');
         });
     });
     ```
@@ -81,9 +81,9 @@ Let's add a few options to our plugin.
 
     ```js
     describe('options events respond correctly', function() {
-        it('correctly invokes the identified event', function(done) {
+        it('correctly invokes the typeIdentified event', function(done) {
             $element.seesee({
-                identified: function() {
+                typeIdentified: function() {
                     done();
                 }
             });
@@ -92,9 +92,9 @@ Let's add a few options to our plugin.
             sendKey('0');
         });
 
-        it('passes data to the identified event', function(done) {
+        it('passes data to the typeIdentified event', function(done) {
             $element.seesee({
-                identified: function(e, ui) {
+                typeIdentified: function(e, ui) {
                     expect(ui.type.type).to.equal('visa');
                     done();
                 }
