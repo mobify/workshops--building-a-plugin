@@ -18,7 +18,7 @@ Let's add a few options to our plugin.
     
 1. Once we define our event in the default options, it will be available to use through `this.options`. The plugin factory conveniently sets this member for you when the plugin is constructed. Let's invoke this event when the credit card is identified.
 
-    In the `_identifyType` function, we can use the `_trigger` function to invoke our event. 
+    In the `_identifyType` function, we can use the `_trigger` method to invoke our event. The `_trigger` method is a method that is inherited from the plugin factory's prototype. You can use it to artificially trigger events that respond to user interactions.
 
     ```js
     _identifyType: function() {
