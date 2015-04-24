@@ -48,7 +48,7 @@ You need yeoman:
 You'll need the yeoman generator for building plugins:
 
 ```cli
-git clone https://github.com/mobify/generator-plugin.git && npm install && bower install && [sudo] npm link
+git clone https://github.com/mobify/generator-plugin.git && cd generator-plugin && npm install && bower install && [sudo] npm link
 ```
 
 The `[sudo] npm link` command will install the plugin generator in your local yeoman.
