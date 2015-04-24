@@ -79,7 +79,7 @@ if (!Function.prototype.bind) {
     }
   ```
   
-1. And also add a stub for the `_formatCard` and check `_checkCard` functions.
+1. And also add a stub for the event handlers.
 
   ```js
     _restrictNumeric: function() {
