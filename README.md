@@ -115,7 +115,7 @@ Let's add a few options to our plugin.
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-6-styling
+git clean -f && git checkout . && git checkout step-6-styling && npm install && bower install
 ```
 
 Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-6-styling/README.md)
