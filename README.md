@@ -97,7 +97,7 @@ if (!Function.prototype.bind) {
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-4-respond-to-events
+git clean -f && git checkout . && git checkout step-4-respond-to-events && npm install && bower install
 ```
 
 Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-4-respond-to-events/README.md)
