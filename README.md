@@ -85,6 +85,9 @@ if (!Function.prototype.bind) {
     _restrictNumeric: function() {
     },
     
+    _restrictLength: function() {
+    },
+    
     _formatCard: function() {
     },
     
