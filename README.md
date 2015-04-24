@@ -4,7 +4,7 @@ It would be great if our credit card input gave us some visual indication of a c
 
 ## Task:
 
-1. First, let's add some SASS variables.
+1. First, let's add some SASS variables. Open `src/style/seesee.scss` and add the following variables.
 
     ```scss
     $font-size: 18px;
@@ -15,7 +15,7 @@ It would be great if our credit card input gave us some visual indication of a c
 
 1. Next, let's add some basic styling for `seesee`'s input. 
 
-  Open `src/style/seesee.scss` and add the following to the `.seesee` selector.
+  Add the following to the `.seesee` selector.
   
     ```scss
     .seesee {
