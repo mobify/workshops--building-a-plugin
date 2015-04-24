@@ -1,4 +1,4 @@
-$font-size: 14px;
+$font-size: 18px;
 $leading-ratio: 1.5;
 $line-height: $font-size * $leading-ratio;
 $border-color: #BBB;
@@ -38,6 +38,7 @@ $border-color: #BBB;
 
 @each $cardType in visa, mastercard {
     .seesee--#{$cardType} {
-        background-image: url('../../dist/i/#{$cardType}.png');
+        background: url('../../dist/i/#{$cardType}.png') no-repeat 98% 50%;
     }
 }
+

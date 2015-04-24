@@ -1,14 +1,14 @@
 .seesee {
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   width: 100%;
   height: 40px;
   padding: 10px 15px;
   border: 1px solid #BBB;
   border-radius: 4px;
   background-color: #fff;
-  line-height: 21px;
+  line-height: 27px;
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none; }
   .seesee::-webkit-input-placeholder {
@@ -19,7 +19,7 @@
     border-color: #16a085; }
 
 .seesee--visa {
-  background-image: url("../../dist/i/visa.png"); }
+  background: url("../../dist/i/visa.png") no-repeat 98% 50%; }
 
 .seesee--mastercard {
-  background-image: url("../../dist/i/mastercard.png"); }
+  background: url("../../dist/i/mastercard.png") no-repeat 98% 50%; }
