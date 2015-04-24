@@ -25,21 +25,21 @@ define([
                 seesee = new Seesee($element);
             });
 
-            it('correctly defines the identified event', function() {
-                expect(seesee.options.identified).to.be.a('function');
+            it('correctly defines the typeIdentified event', function() {
+                expect(seesee.options.typeIdentified).to.be.a('function');
             });
         });
 
         describe('creates custom options when options parameter used', function() {
-            it('correctly defines identified event', function() {
-                var identified = function() {
-                    console.log('I\'m identified!')
+            it('correctly defines typeIdentified event', function() {
+                var typeIdentified = function(e, ui) {
+                    console.log(ui.type);
                 };
 
-                seesee = new Seesee($element, { identified: identified });
+                seesee = new Seesee($element, { typeIdentified: typeIdentified });
 
-                expect(seesee.options.identified).to.equal(identified);
-                expect(seesee.options.identified).to.be.a('function');
+                expect(seesee.options.typeIdentified).to.equal(typeIdentified);
+                expect(seesee.options.typeIdentified).to.be.a('function');
             });
         });
     });

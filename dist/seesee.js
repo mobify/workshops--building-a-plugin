@@ -64,7 +64,7 @@
     Seesee.VERSION = '0.0.1';
 
     Seesee.DEFAULTS = {
-        identified: $.noop
+        typeIdentified: $.noop
     };
 
     Plugin.create('seesee', Seesee, {
@@ -134,7 +134,7 @@
             if (type) {
                 this.$element.removeClass(this.currentClass).addClass(type.type);
 
-                this._trigger('identified', { type: type });
+                this._trigger('typeIdentified', { type: type });
 
                 this.currentClass = type.type;
             } else {

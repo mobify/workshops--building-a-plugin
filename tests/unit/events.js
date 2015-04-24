@@ -98,9 +98,9 @@ define([
         });
 
         describe('options events respond correctly', function() {
-            it('correctly invokes the identified event', function(done) {
+            it('correctly invokes the typeIdentified event', function(done) {
                 $element.seesee({
-                    identified: function() {
+                    typeIdentified: function() {
                         done();
                     }
                 });
@@ -109,9 +109,9 @@ define([
                 sendKey('0');
             });
 
-            it('passes data to the identified event', function(done) {
+            it('passes data to the typeIdentified event', function(done) {
                 $element.seesee({
-                    identified: function(e, ui) {
+                    typeIdentified: function(e, ui) {
                         expect(ui.type.type).to.equal('visa');
                         done();
                     }
