@@ -8,6 +8,12 @@ module.exports = function(grunt) {
                     src: ['**/*.js'],
                     dest: 'dist/',
                     filter: 'isFile'
+                },
+                {
+                    expand: true,
+                    cwd: 'src/i',
+                    src: ['**/*.png'],
+                    dest: 'dist/i'
                 }
             ]
         }
