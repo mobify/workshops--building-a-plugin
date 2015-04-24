@@ -112,7 +112,7 @@
             var number = this.$element.val().replace(/\s/g, '') + digit;
             var type = this._getCardType(number);
 
-            return number.length <= type.maxLength;
+            return !type || number.length <= type.maxLength;
         },
 
         _formatCard: function() {
