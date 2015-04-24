@@ -208,7 +208,7 @@ Now that we've bound our events, we need to respond to them when we receive user
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-5-options
+git clean -f && git checkout . && git checkout step-5-options && npm install && bower install
 ```
 
 Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-5-options/README.md)
