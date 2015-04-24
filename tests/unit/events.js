@@ -74,7 +74,7 @@ define([
                 $element.val('450000000000000');
                 sendKey('0');
 
-                expect($element.hasClass('visa')).to.be.true;
+                expect($element.hasClass('seesee--visa')).to.be.true;
             });
 
             it('correctly identifies mastercard card type and sets class', function() {
@@ -83,7 +83,7 @@ define([
                 $element.val('540000000000000');
                 sendKey('0');
 
-                expect($element.hasClass('mastercard')).to.be.true;
+                expect($element.hasClass('seesee--mastercard')).to.be.true;
             });
 
             it('correctly ignores unrecognized card types', function() {
@@ -92,8 +92,8 @@ define([
                 $element.val('770000000000000');
                 sendKey('0');
 
-                expect($element.hasClass('visa')).to.be.false;
-                expect($element.hasClass('mastercard')).to.be.false;
+                expect($element.hasClass('seesee--visa')).to.be.false;
+                expect($element.hasClass('seesee--mastercard')).to.be.false;
             });
         });
 
@@ -121,6 +121,5 @@ define([
                 sendKey('0');
             });
         });
-
     });
 });
