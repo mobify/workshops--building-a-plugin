@@ -61,7 +61,7 @@ Now that we've bound our events, we need to respond to them when we receive user
         var number = this.$element.val().replace(/\s/g, '') + digit;
         var type = this._getCardType(number);
 
-        return number.length <= type.maxLength;
+        return !type || number.length <= type.maxLength;
     },
 
     _formatCard: function() {
