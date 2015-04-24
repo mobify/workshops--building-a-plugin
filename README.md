@@ -20,7 +20,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   }
   ```
   
-1. Since we're wanting our plugin fully tested, let's add a test to ensure this logic is working as expected. In `tests/plugin.js`, add the following:
+1. Since we're wanting our plugin fully tested, let's add a test to ensure this logic is working as expected. In `tests/unit/plugin.js`, add the following:
 
   ```js
   describe('initializing seesee', function() {
