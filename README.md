@@ -107,7 +107,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -fd && git checkout step-3-bind-events && npm install && bower install
+git clean -fd && git checkout . && git checkout step-3-bind-events && npm install && bower install
 ```
 
 Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-3-bind-events/README.md)
