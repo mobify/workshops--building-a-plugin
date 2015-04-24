@@ -64,10 +64,12 @@ It would be great if our credit card input gave us some visual indication of a c
     
     Now, when we type into our input and the card is identified, we'll get a nice icon representing the card type at the end of the input.
 
-## You're finished!
+## Ready to Continue?
 
-If you want to view the finished product, just use `grunt examples`. It will open up your browser and point you to the examples page of your plugin. 
+Once you're ready to continue, run the following command in your terminal:
 
-## Resources
+```cli
+git clean -f && git checkout step-7-finished
+```
 
-Plugin factory [repository](https://github.com/mobify/plugin)
+Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-7-finished/README.md)
