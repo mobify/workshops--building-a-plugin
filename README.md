@@ -69,7 +69,7 @@ It would be great if our credit card input gave us some visual indication of a c
 Once you're ready to continue, run the following command in your terminal:
 
 ```cli
-git clean -f && git checkout step-7-finished
+git clean -f && git checkout . && git checkout step-7-finished && npm install && bower install
 ```
 
 Then, follow the directions in that branch's [README](https://github.com/mobify/workshops--building-a-plugin/blob/step-7-finished/README.md)
