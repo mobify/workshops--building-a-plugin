@@ -62,7 +62,7 @@ Now that our plugin scaffold has been created, let's start adding some functiona
   }  
   ```
   
-1. Let's also write a test for this.
+1. Let's also write a test for this and add it inside the same `describe` block.
 
   ```js
   it('sets the correct class on the input', function() {
