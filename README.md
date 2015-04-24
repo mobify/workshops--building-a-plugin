@@ -4,22 +4,67 @@ It would be great if our credit card input gave us some visual indication of a c
 
 ## Task:
 
-1. First, let's add some basic styling for `seesee`'s input. 
+1. First, let's add some SASS variables.
+
+    ```scss
+    $font-size: 18px;
+    $leading-ratio: 1.5;
+    $line-height: $font-size * $leading-ratio;
+    $border-color: #BBB;
+    ```
+
+1. Next, let's add some basic styling for `seesee`'s input. 
 
   Open `src/style/seesee.scss` and add the following to the `.seesee` selector.
   
-  ```scss
-  .seesee {
-      
-  }
-  ```
-
-1. Next, we want to add specific styles for the input once the card has been identified. Add the following below the above CSS.
-
     ```scss
+    .seesee {
+        display: block;
+    
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: $font-size;
+    
+        width: 100%;
+        height: 40px;
+        padding: 10px 15px;
+        border: 1px solid $border-color;
+    
+        border-radius: 4px;
+    
+        background-color: #fff;
+    
+        line-height: $line-height;
+    
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-appearance: none;
+    
+        &::-webkit-input-placeholder {
+            color: #888;
+        }
+    
+        &:active {
+            border-color: darken($border-color, 10);
+        }
+    
+        &:focus {
+            border-color: #16a085;
+        }
+    }
     ```
 
-## All done!
+1. Finally, we want to add specific styles for the input once the card has been identified. Add the following below the above CSS.
+
+    ```scss
+    @each $cardType in visa, mastercard {
+        .seesee--#{$cardType} {
+            background: url('../../dist/i/#{$cardType}.png') no-repeat 98% 50%;
+        }
+    }
+    ```
+    
+    Now, when we type into our input and the card is identified, we'll get a nice icon representing the card type at the end of the input.
+
+## You're finished!
 
 If you want to view the finished product, just use `grunt examples`. It will open up your browser and point you to the examples page of your plugin. 
 
