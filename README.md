@@ -14,7 +14,7 @@ Let's add a few options to our plugin.
     };
     ```
     
-    The reason we initialize it to the `$.noop` function is so that we can avoid unnecessary logic to test whether the property is defined before it's called. 
+    The reason we initialize it to the `$.noop` function is so that we can avoid unnecessary logic to test whether the property is defined before it's called. In the case it's not defined by the user an empty function will be called.
     
 1. Once we define our event in the default options, it will be available to use through `this.options`. The plugin factory conveniently sets this member for you when the plugin is constructed. Let's invoke this event when the credit card is identified.
 
