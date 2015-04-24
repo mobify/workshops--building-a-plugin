@@ -36,7 +36,7 @@ Let's add a few options to our plugin.
     },
     ```
 
-    Now, if someone initializes their plugin with the `typeIdentified` event, it will be invoked once the card type is identified. You'll notice that the second parameter to `_trigger` is an object. This object is arbitrary data that you can pass to your event handler. 
+    Now, if someone initializes their plugin with the `typeIdentified` event, it will be invoked once the card type is identified. You'll notice that the second parameter to `_trigger` is an object. This object is arbitrary data that you can pass to your event handler. Since we're passing the card type through to the event handler, we can access it within our handler.
     
     Here's an example:
     
