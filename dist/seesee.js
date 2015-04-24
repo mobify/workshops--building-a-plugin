@@ -77,6 +77,7 @@
         _bindEvents: function() {
             this.$element
                 .on('keypress', this._restrictNumeric.bind(this))
+		.on('keypress', this._restrictLength.bind(this))
                 .on('keyup', this._formatCard.bind(this))
                 .on('keyup', this._identifyType.bind(this));
         },
