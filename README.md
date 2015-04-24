@@ -25,11 +25,13 @@ Let's add a few options to our plugin.
         var type = this._getCardType(this.$element.val());
 
         if (type) {
-            this.$element.removeClass(this.currentClass).addClass(type.type);
+            var klass = classes.SEESEE + '--' + type.type;
+        
+            this.$element.removeClass(this.currentClass).addClass(klass);
             
             this._trigger('typeIdentified', { type: type });
 
-            this.currentClass = type.type;
+            this.currentClass = klass;
         } else {
             this.$element.removeClass(this.currentClass);
         }
