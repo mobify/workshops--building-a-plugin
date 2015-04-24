@@ -134,9 +134,9 @@
             if (type) {
                 var klass = classes.SEESEE + '--' + type.type;
 
-                this._trigger('typeIdentified', { type: type });
-
                 this.$element.removeClass(this.currentClass).addClass(klass);
+
+                this._trigger('typeIdentified', { type: type });
 
                 this.currentClass = klass;
             } else {
