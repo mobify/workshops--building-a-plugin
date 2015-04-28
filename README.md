@@ -53,6 +53,14 @@ git clone https://github.com/mobify/generator-plugin.git && cd generator-plugin 
 
 The `[sudo] npm link` command will install the plugin generator in your local yeoman.
 
+### Clone this repository
+
+Finally, clone this repository. You'll be working in it for the duration of the workshop.
+
+```cli
+git clone https://github.com/mobify/workshops--building-a-plugin.git && cd workshops--building-a-plugin
+```
+
 ## Ready to start?
 
 Once you're ready to begin, run the following command in your terminal:
